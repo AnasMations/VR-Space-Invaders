@@ -10,10 +10,12 @@ public class PlayerSpaceship : MonoBehaviour
     public GameObject ShootBullet;
     public Transform BulletSpawnPoint;
     public bool isShooting = false;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         shoot();
     }
 
@@ -26,6 +28,13 @@ public class PlayerSpaceship : MonoBehaviour
     void FixedUpdate()
     {
         movement();
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("EnemyBullet"))
+        {
+            gameManager.PlayerHealth -= other.GetComponent<Bullet>().BulletDamage;
+        }
     }
 
     void movement()
