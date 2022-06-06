@@ -29,8 +29,19 @@ public class Enemy : MonoBehaviour, ObjectControl
         {
             this.health = 0;
             gameManager.PlayerHealth -= collideDamage;
+        }else if(other.CompareTag("ShootArea"))
+        {
+            player.GetComponent<PlayerSpaceship>().isShooting = true;
         }
         
+    }
+
+    void OnTriggerExit(Collider other) 
+    {
+        if(other.CompareTag("ShootArea"))
+        {
+            //player.GetComponent<PlayerSpaceship>().isShooting = false;
+        }
     }
 
     // Start is called before the first frame update

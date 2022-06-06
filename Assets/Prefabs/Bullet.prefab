@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpeed: 100
   BulletDamage: 5
+  isRelativeToCamera: 1
 --- !u!114 &976098907621425308
 MonoBehaviour:
   m_ObjectHideFlags: 0
