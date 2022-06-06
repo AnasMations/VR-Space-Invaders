@@ -1,22 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, ObjectControl
 {
+    public float health;
+    private float maxHealth;
+    public Slider slider;
     public float moveSpeed = 1f;
     public float awayDistance = 20f;
     private GameObject player;
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Bullet"))
+        {
+            this.health -= other.GetComponent<Bullet>().BulletDamage;
+        }
+    }
+
     // Start is called before the first frame update
     void Start(){
+        maxHealth = health;
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update(){
+        slider.value = health/maxHealth;
         //Move enemy to player position in the scene
         moveTo(player.transform, moveSpeed);
+        checkHealth();
     }
 
     void moveTo(Transform destination, float moveSpeed)
@@ -39,6 +54,15 @@ public class Enemy : MonoBehaviour, ObjectControl
 
     }
 
+    void checkHealth()
+    {
+        if(health <= 0)
+        {
+            player.GetComponent<PlayerSpaceship>().isShooting = false;
+            this.gameObject.SetActive(false);
+        }
+    }
+
     public void OnPointerEnter()
     {
         //this.gameObject.SetActive(false);
@@ -54,6 +78,6 @@ public class Enemy : MonoBehaviour, ObjectControl
 
     public void OnPointerClick()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
