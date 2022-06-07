@@ -8,12 +8,6 @@ public class Bullet : MonoBehaviour
     public int BulletDamage = 1;
     public bool isRelativeToCamera = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -27,7 +21,7 @@ public class Bullet : MonoBehaviour
             transform.position += Camera.main.transform.forward * BulletSpeed * Time.fixedDeltaTime;
         }else
         {
-            transform.position += transform.forward * BulletSpeed * Time.fixedDeltaTime;
+            transform.position += this.transform.forward * BulletSpeed * Time.fixedDeltaTime;
         }
     }
 }
