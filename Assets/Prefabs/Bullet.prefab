@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52df964ff35a6a48ab749676c962825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 100
+  BulletSpeed: 200
   BulletDamage: 5
   isRelativeToCamera: 1
 --- !u!114 &976098907621425308

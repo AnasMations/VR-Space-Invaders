@@ -304,14 +304,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce3f1d91b279fc4aa9f2a02d91f59cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 80
   slider: {fileID: 5777878147354690083}
+  meshRenderer: {fileID: 5777878148012112633}
+  flashTime: 5
   collideDamage: 25
   scorePoints: 10
-  moveSpeed: 15
+  moveSpeed: 20
   rotationSpeed: 1
-  awayDistance: 20
-  bulletShootRate: 0.1
+  awayDistance: 25
+  bulletShootRate: 0.3
   bullet: {fileID: 6928593251315620627, guid: a4563bf1096712b4ab2eb8cd996e83b5, type: 3}
   bulletSpawnPosition: {fileID: 8156956476000505762}
   isShooting: 0

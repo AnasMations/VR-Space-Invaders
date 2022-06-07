@@ -48,11 +48,15 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore", HighScore);
             }
             GameOverScreen.SetActive(true);
+            //wait and reload scene
+            StartCoroutine("Retry");
         }
+
     }
 
-    public void Retry()
+    IEnumerator Retry()
     {
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("SpaceScene");
     }
 

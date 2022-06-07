@@ -51,6 +51,7 @@ public class PlayerSpaceship : MonoBehaviour
     {
         if(isShooting)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerShoot");
             Instantiate(ShootBullet, BulletSpawnPoint.position, BulletSpawnPoint.rotation);
         }
     }
