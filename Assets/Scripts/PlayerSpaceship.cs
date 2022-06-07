@@ -10,6 +10,7 @@ public class PlayerSpaceship : MonoBehaviour
     public GameObject ShootBullet;
     public Transform BulletSpawnPoint;
     public bool isShooting = false;
+    public Animator playerAnimation;
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -19,14 +20,9 @@ public class PlayerSpaceship : MonoBehaviour
         shoot();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void FixedUpdate()
     {
+        playerAnimation.SetBool("isShooting", isShooting);
         movement();
     }
 
